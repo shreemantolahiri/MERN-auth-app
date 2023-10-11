@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 dotenv.config();
 
 //middleware
@@ -20,6 +21,8 @@ const app = express();
 app.use(express.json());
 //for parsing url encoded data
 app.use(express.urlencoded({ extended: true }));
+//cookie parser
+app.use(cookieParser());
 
 app.use('/api/users', userRoutes);
 
